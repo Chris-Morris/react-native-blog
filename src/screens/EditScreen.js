@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 import { Context } from '../context/BlogContext';
 
-const CreateScreen = ({ navigation }) => {
+const EditScreen = ({ navigation }) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const { addBlogPost } = useContext(Context);
@@ -14,7 +14,7 @@ const CreateScreen = ({ navigation }) => {
             <Text style={styles.label}>Enter Content:</Text>
             <TextInput style={styles.input} value={content} onChangeText={(text) => setContent(text)} />
             <Button 
-                title="Add Blog Post" 
+                title="Edit Blog Post" 
                 onPress={() => {
                     addBlogPost(title, content, () => {
                         navigation.navigate('Index')
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default CreateScreen;
+export default EditScreen;

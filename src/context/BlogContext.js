@@ -6,9 +6,9 @@ const blogReducer = (state, action) => {
             return state.filter((blogPost) => blogPost.id !== action.payload);
         case 'add_blogpost':
             return [
-                ...state, 
-                { 
-                    id: Math.floor(Math.random() * 99999), 
+                ...state,
+                {
+                    id: Math.floor(Math.random() * 99999),
                     title: action.payload.title,
                     content: action.payload.content
                 }
@@ -19,8 +19,9 @@ const blogReducer = (state, action) => {
 };
 
 const addBlogPost = dispatch => {
-    return (title, content) => {
+    return (title, content, callback) => {
         dispatch({ type: 'add_blogpost', payload: { title, content } });
+        callback();
     };
 };
 
